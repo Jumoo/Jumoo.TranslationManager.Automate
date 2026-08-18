@@ -1,45 +1,40 @@
 <Project>
-	<PropertyGroup>
-		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-	</PropertyGroup>
-
-	<!-- umbraco site (test site only) -->
-	<ItemGroup>
-		<PackageVersion Include="Umbraco.Cms" Version="17.6.1" />
-		<PackageVersion Include="Umbraco.Cms.DevelopmentMode.Backoffice" Version="17.6.1" />
-		<PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
-	</ItemGroup>
-
-	<!-- Umbraco.Automate (test site only - the package references only Umbraco.Automate.Core) -->
-	<ItemGroup>
-		<PackageVersion Include="Umbraco.Automate" Version="17.2.0" />
-	</ItemGroup>
-
-	<!-- Translation Manager (test site only - the package references only Jumoo.TranslationManager.Core) -->
-	<ItemGroup>
-		<PackageVersion Include="Jumoo.TranslationManager" Version="17.7.1" />
-	</ItemGroup>
-
-	<!-- Jumoo.TranslationManager.Automate package references -->
-	<!-- Pinned at the floor version we support, not the newest - NuGet's minimum-version
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <!-- umbraco site (test site only) -->
+  <ItemGroup>
+    <PackageVersion Include="Clean" Version="7.0.8" />
+    <PackageVersion Include="Umbraco.Cms" Version="17.6.1" />
+    <PackageVersion Include="Umbraco.Cms.DevelopmentMode.Backoffice" Version="17.6.1" />
+    <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+  </ItemGroup>
+  <!-- Umbraco.Automate (test site only - the package references only Umbraco.Automate.Core) -->
+  <ItemGroup>
+    <PackageVersion Include="Umbraco.Automate" Version="17.2.0" />
+  </ItemGroup>
+  <!-- Translation Manager (test site only - the package references only Jumoo.TranslationManager.Core) -->
+  <ItemGroup>
+    <PackageVersion Include="Jumoo.TranslationManager" Version="17.7.1" />
+  </ItemGroup>
+  <!-- Jumoo.TranslationManager.Automate package references -->
+  <!-- Pinned at the floor version we support, not the newest - NuGet's minimum-version
 	     resolution means referencing a newer version forces every consumer onto it. -->
-	<ItemGroup>
-		<PackageVersion Include="Jumoo.TranslationManager.Core" Version="17.4.0" />
-		<PackageVersion Include="Umbraco.Automate.Core" Version="17.2.0" />
-		<PackageVersion Include="Umbraco.Automate.Testing" Version="17.2.0" />
-	</ItemGroup>
-
-	<!-- source link -->
-	<ItemGroup>
-		<PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.201" />
-	</ItemGroup>
-
-	<!-- testing -->
-	<ItemGroup>
-		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.4.0" />
-		<PackageVersion Include="NUnit3TestAdapter" Version="6.2.0" />
-		<PackageVersion Include="NUnit" Version="4.3.2" />
-		<PackageVersion Include="Moq" Version="4.20.72" />
-		<PackageVersion Include="coverlet.collector" Version="8.0.1" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageVersion Include="Jumoo.TranslationManager.Core" Version="17.4.0" />
+    <PackageVersion Include="Umbraco.Automate.Core" Version="17.2.0" />
+    <PackageVersion Include="Umbraco.Automate.Testing" Version="17.2.0" />
+  </ItemGroup>
+  <!-- source link -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.201" />
+  </ItemGroup>
+  <!-- testing -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.4.0" />
+    <PackageVersion Include="NUnit3TestAdapter" Version="6.2.0" />
+    <PackageVersion Include="NUnit" Version="4.3.2" />
+    <PackageVersion Include="Moq" Version="4.20.72" />
+    <PackageVersion Include="coverlet.collector" Version="8.0.1" />
+  </ItemGroup>
 </Project>
