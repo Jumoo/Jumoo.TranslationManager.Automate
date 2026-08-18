@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<!-- Class-level remarks document intent; per-property doc comments on simple output/settings DTOs would be pure noise. -->
+		<NoWarn>$(NoWarn);CS1591</NoWarn>
+
+		<PackageId>Jumoo.TranslationManager.Automate</PackageId>
+		<Product>Jumoo.TranslationManager.Automate</Product>
+		<Title>Translation Manager for Umbraco Automate - Actions and Triggers</Title>
+		<Description>Create, submit and approve Translation Manager jobs from Umbraco Automate workflows, and start workflows from translation events.</Description>
+		<PackageTags>umbraco translation translationmanager automate automation workflow umbraco-marketplace</PackageTags>
+
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="readme.md" Pack="true" PackagePath="\" />
+
+		<PackageReference Include="Jumoo.TranslationManager.Core" />
+		<PackageReference Include="Umbraco.Automate.Core" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="Jumoo.TranslationManager.Automate.Tests" />
+	</ItemGroup>
+</Project>

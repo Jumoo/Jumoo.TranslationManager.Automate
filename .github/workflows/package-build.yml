@@ -1,0 +1,93 @@
+name: v17 - Build and Package
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  push:
+    branches: [main]
+
+env:
+  config: Release
+  out_folder: ./build-out/
+
+jobs:
+  version:
+    runs-on: windows-latest
+    outputs:
+      version_string: ${{ steps.gitversion.outputs.fullSemVer }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v3
+        with:
+          versionSpec: "5.x"
+
+      - name: Determine Version with GitVersion
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v3
+        with:
+          useConfigFile: true
+          configFilePath: ./GitVersion.yml
+
+      - name: Display version
+        run: |
+          echo "Full Version: ${{ steps.gitversion.outputs.fullSemVer }}"
+
+  build-project:
+    runs-on: windows-latest
+    needs: version
+
+    env:
+      solution_name: ./Jumoo.TranslationManager.Automate.slnx
+      test_project: ./Jumoo.TranslationManager.Automate.Tests/Jumoo.TranslationManager.Automate.Tests.csproj
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+          cache: true
+          cache-dependency-path: "**/*.csproj"
+
+      - name: restore
+        run: dotnet restore ${{ env.solution_name }}
+
+      - name: build
+        run: dotnet build ${{ env.solution_name }} -c ${{ env.config }} -p:ContinuousIntegrationBuild=true
+
+      - name: test
+        run: dotnet test ${{ env.test_project }} -c ${{ env.config }}
+
+  package-up:
+    runs-on: windows-latest
+    needs: [build-project, version]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+          cache: true
+          cache-dependency-path: "**/*.csproj"
+
+      - name: version
+        run: |
+          echo "Version: ${{ needs.version.outputs.version_string }}"
+
+      - name: restore
+        run: dotnet restore ./Jumoo.TranslationManager.Automate.slnx
+
+      - name: package Jumoo.TranslationManager.Automate
+        run: dotnet pack ./Jumoo.TranslationManager.Automate/Jumoo.TranslationManager.Automate.csproj -c ${{ env.config }} --output ${{ env.out_folder }} /p:version=${{ needs.version.outputs.version_string }}
+
+      - name: Upload nuget file as build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nuget Build Output
+          path: ${{ env.out_folder }}

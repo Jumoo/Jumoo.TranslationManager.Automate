@@ -1,0 +1,46 @@
+{
+    "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+    "AuthorDetails": {
+        "Name": "Jumoo",
+        "Description": "Jumoo are a software development company based in the UK",
+        "Url": "https://jumoo.co.uk",
+        "ImageUrl": "https://jumoo.co.uk/img/ju_square.jpg"
+    },
+    "Category": "Developer Tools",
+    "PackageType": "Package",
+    "LicenseTypes": ["Free"],
+    "Tags": [
+        "automate",
+        "workflow",
+        "automation",
+        "translation",
+        "localization"
+    ],
+    "PackagesByAuthor": [
+        "uSync",
+        "uSync.Complete",
+        "uSync.Automate",
+        "uSync.Automate.Actions",
+        "uSync.Automate.Actions.Complete",
+        "uSync.Hangfire",
+        "uSync.Complete.Hangfire",
+        "Jumoo.TranslationManager",
+        "Jumoo.TranslationManager.AI"
+    ],
+    "RelatedPackages": [
+        {
+            "PackageId": "Jumoo.TranslationManager",
+            "Description": "Manage and run translation jobs for Umbraco content, backed by connectors for machine and human translation services.",
+            "GroupTitle": "Jumoo.TranslationManager family"
+        },
+        {
+            "PackageId": "Jumoo.TranslationManager.AI",
+            "Description": "AI-assisted translation connector for Translation Manager."
+        }
+    ],
+
+    "Title": "Jumoo.TranslationManager.Automate",
+    "Description": "Create, submit and approve Translation Manager jobs from Umbraco Automate workflows, and start workflows from translation events.",
+    "DocumentationUrl": "https://github.com/Jumoo/Jumoo.TranslationManager.Automate#readme",
+    "IssueTrackerUrl": "https://github.com/Jumoo/Jumoo.TranslationManager.Automate/issues"
+}

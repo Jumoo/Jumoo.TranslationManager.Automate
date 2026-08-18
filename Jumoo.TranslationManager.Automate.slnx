@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="readme.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="docs/implementation-plan.md" />
+  </Folder>
+  <Project Path="Jumoo.TranslationManager.Automate/Jumoo.TranslationManager.Automate.csproj" />
+  <Project Path="Jumoo.TranslationManager.Automate.Tests/Jumoo.TranslationManager.Automate.Tests.csproj" />
+  <Project Path="Jumoo.TranslationManager.Automate.Site/Jumoo.TranslationManager.Automate.Site.csproj" />
+</Solution>

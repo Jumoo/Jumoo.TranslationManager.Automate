@@ -1,0 +1,36 @@
+name: v17 - PR Project Build and Test
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+    branches: [main]
+
+env:
+  config: Release
+
+jobs:
+  build-project:
+    runs-on: windows-latest
+
+    env:
+      solution_name: ./Jumoo.TranslationManager.Automate.slnx
+      test_project: ./Jumoo.TranslationManager.Automate.Tests/Jumoo.TranslationManager.Automate.Tests.csproj
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+          cache: true
+          cache-dependency-path: "**/*.csproj"
+
+      - name: restore
+        run: dotnet restore ${{ env.solution_name }}
+
+      - name: build
+        run: dotnet build ${{ env.solution_name }} -c ${{ env.config }} -p:ContinuousIntegrationBuild=true
+
+      - name: test
+        run: dotnet test ${{ env.test_project }} -c ${{ env.config }}
