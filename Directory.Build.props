@@ -5,7 +5,7 @@
 		<Company>Jumoo</Company>
 
 		<PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
-		<PackageProjectUrl>https://jumoo.co.uk/TranslationManager</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/Jumoo/Jumoo.TranslationManager.Automate</PackageProjectUrl>
 		<PackageTags>Umbraco</PackageTags>
 
 		<RepositoryUrl>https://github.com/Jumoo/Jumoo.TranslationManager.Automate</RepositoryUrl>
