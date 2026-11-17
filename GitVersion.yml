@@ -5,7 +5,7 @@ branches:
   main:
     mode: ContinuousDeployment
     tag: ""
-    regex: ^main$
+    regex: ^(v[0-9]+/)?main$
   pull-request:
     mode: ContinuousDeployment
 ignore:
