@@ -10,6 +10,8 @@ updates:
     # out of dependabot security updates.
     ignore:
       - dependency-name: "Umbraco.*"
+      - dependency-name: "Clean"  # starter-kit majors track Umbraco majors (7=v17, 8=v18, 9=v19)
+        update-types: ["version-update:semver-major"]
       - dependency-name: "Jumoo.TranslationManager*"
     # majors are deliberately left out of the group so they arrive as one PR each.
     groups:
