@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "nuget"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     # Umbraco, Umbraco.Automate and Jumoo.TranslationManager are pinned deliberately. The
     # versions referenced here set the minimum for anyone installing this package, so they
     # move when we choose to move them - not on a weekly schedule. Note this also opts them
@@ -23,7 +23,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     ignore:
       - dependency-name: "gittools/actions"
     groups:
